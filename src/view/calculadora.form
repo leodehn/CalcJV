@@ -28,35 +28,48 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Visor" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="ButtonMais" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="Button0" min="-2" pref="70" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ButtonLimpar" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="Button7" min="-2" pref="70" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Button8" min="-2" pref="70" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Button9" min="-2" pref="70" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Button0" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ButtonMenos" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ButtonMais" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="ButtonMenos" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="Button7" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="Button4" min="-2" pref="70" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Button5" min="-2" pref="70" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Button6" min="-2" pref="70" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="Button1" min="-2" pref="70" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Button2" min="-2" pref="70" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Button3" min="-2" pref="70" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Button8" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Button9" min="-2" pref="70" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="Button4" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Button5" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Button6" min="-2" pref="70" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="Button1" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Button2" min="-2" pref="70" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Button3" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="ButtonIgual" min="-2" pref="70" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -65,31 +78,37 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Visor" min="-2" pref="79" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Button2" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="Button3" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="Button1" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Button5" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="Button6" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="Button4" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Button2" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="Button3" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="Button1" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Button5" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="Button6" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="Button4" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="ButtonIgual" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Button8" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="Button9" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="Button7" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Button0" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="ButtonMenos" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
                   <Component id="ButtonMais" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="ButtonMenos" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="Button0" max="32767" attributes="0"/>
+                  <Component id="ButtonLimpar" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -196,6 +215,22 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonLimpar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="RESET"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonLimparActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="ButtonIgual">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="="/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonIgualActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

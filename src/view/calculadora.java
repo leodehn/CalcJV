@@ -14,11 +14,11 @@ import java.awt.event.ActionEvent;
 public class calculadora extends javax.swing.JFrame {
     
     private float dado = 0;
-    private int operacao = 0;
+    private int opr = 0;
     
     public calculadora() {
         initComponents();
-        updateVisor(0);
+        //updateVisor(0, false);
         makeActList();
     }
 
@@ -44,6 +44,8 @@ public class calculadora extends javax.swing.JFrame {
         Button0 = new javax.swing.JButton();
         ButtonMenos = new javax.swing.JButton();
         Visor = new javax.swing.JTextField();
+        ButtonLimpar = new javax.swing.JButton();
+        ButtonIgual = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +136,20 @@ public class calculadora extends javax.swing.JFrame {
 
         Visor.setText("0");
 
+        ButtonLimpar.setText("RESET");
+        ButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonLimparActionPerformed(evt);
+            }
+        });
+
+        ButtonIgual.setText("=");
+        ButtonIgual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonIgualActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,57 +159,69 @@ public class calculadora extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Visor)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ButtonMais, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(Button0, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ButtonLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(Button7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button0, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonMais, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Button7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Button4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Button1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Button3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Button4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Button1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Button3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addComponent(ButtonIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Visor, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Button2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Button5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Button2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Button3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Button1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Button5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Button6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Button4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ButtonIgual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Button8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Button9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Button7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Button0, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonMais, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ButtonMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonLimpar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -247,6 +275,14 @@ public class calculadora extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonMenosActionPerformed
 
+    private void ButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLimparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonLimparActionPerformed
+
+    private void ButtonIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIgualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonIgualActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -293,17 +329,87 @@ public class calculadora extends javax.swing.JFrame {
     private javax.swing.JButton Button7;
     private javax.swing.JButton Button8;
     private javax.swing.JButton Button9;
+    private javax.swing.JButton ButtonIgual;
+    private javax.swing.JButton ButtonLimpar;
     private javax.swing.JButton ButtonMais;
     private javax.swing.JButton ButtonMenos;
     private javax.swing.JTextField Visor;
     // End of variables declaration//GEN-END:variables
 
-    private void updateVisor(int n) {
+    private void makeActList() {
+        Button1.addActionListener((ActionEvent a) -> {
+            updateVisor(1, false);
+        });
+        Button2.addActionListener((ActionEvent a) -> {
+            updateVisor(2, false);
+        });
+        Button3.addActionListener((ActionEvent a) -> {
+            updateVisor(3, false);
+        });
+        Button4.addActionListener((ActionEvent a) -> {
+            updateVisor(4, false);
+        });
+        Button5.addActionListener((ActionEvent a) -> {
+            updateVisor(5, false);
+        });
+        Button6.addActionListener((ActionEvent a) -> {
+            updateVisor(6, false);
+        });
+        Button7.addActionListener((ActionEvent a) -> {
+            updateVisor(7, false);
+        });
+        Button8.addActionListener((ActionEvent a) -> {
+            updateVisor(8, false);
+        });
+        Button9.addActionListener((ActionEvent a) -> {
+            updateVisor(9, false);
+        });
+        Button0.addActionListener((ActionEvent a) -> {
+            updateVisor(0, false);
+        });
+        ButtonMais.addActionListener((ActionEvent a) -> {
+            dado = Integer.parseInt(Visor.getText());
+            updateVisor(0, true);
+            opr=1;
+        });
+        ButtonMenos.addActionListener((ActionEvent a) -> {
+            dado = Integer.parseInt(Visor.getText());
+            updateVisor(0, true);
+            opr=2;
+        });
+        ButtonIgual.addActionListener((ActionEvent a) -> {
+            //dado = Integer.parseInt(Visor.getText());
+            //opr=3;
+            updateVisor(execOperacao(dado,Integer.parseInt(Visor.getText())), true);
+        });
+        ButtonLimpar.addActionListener((ActionEvent a) -> {
+            dado=0;
+            opr=0;
+            updateVisor(0, true);
+            //opr=4;
+        });
+    }
+
+    /*private void execOperacao(int i, int operacao) {
+        dado = Integer.parseInt(Visor.getText());
+        if(operacao==1){
+            dado+=i;
+        }else if(operacao==2){
+            dado-=i;
+        }else if(operacao==3){
+            
+        }
+        updateVisor((int) dado,true);
+        opr=0;
+        dado=0;
+    }*/
+
+
+   private void updateVisor(int n, boolean operacao) {
         
         StringBuilder temp = new StringBuilder();
         
-        if (!Visor.getText().equals("0")){
-            
+        if (!Visor.getText().equals("0")&!operacao){ 
            temp.append(Visor.getText());
         }
         
@@ -313,57 +419,22 @@ public class calculadora extends javax.swing.JFrame {
         Visor.setText(temp.toString());
     }
 
-    private void makeActList() {
-        Button1.addActionListener((ActionEvent a) -> {
-            updateVisor(1);
-        });
-        Button2.addActionListener((ActionEvent a) -> {
-            updateVisor(2);
-        });
-        Button3.addActionListener((ActionEvent a) -> {
-            updateVisor(3);
-        });
-        Button4.addActionListener((ActionEvent a) -> {
-            updateVisor(4);
-        });
-        Button5.addActionListener((ActionEvent a) -> {
-            updateVisor(5);
-        });
-        Button6.addActionListener((ActionEvent a) -> {
-            updateVisor(6);
-        });
-        Button7.addActionListener((ActionEvent a) -> {
-            updateVisor(7);
-        });
-        Button8.addActionListener((ActionEvent a) -> {
-            updateVisor(8);
-        });
-        Button9.addActionListener((ActionEvent a) -> {
-            if (operacao==0){
-                updateVisor(9);
-            }else{
-                execOperacao(9,operacao);
-            }
-            
-        });
-        Button0.addActionListener((ActionEvent a) -> {
-            updateVisor(0);
-        });
-        ButtonMais.addActionListener((ActionEvent a) -> {
-            operacao=1;
-        });
-        ButtonMenos.addActionListener((ActionEvent a) -> {
-            operacao=2;
-        });
-    }
-
-    private void execOperacao(int i, int operacao) {
-        dado = Integer.parseInt(Visor.getText());
-        if(operacao==1){
-            dado+=i;
-        }else{
-            dado-=i;
+    private int execOperacao(float dadoA, float dadoB) {
+        float result;
+        switch (opr) {
+            case 1:
+                result = dadoA+dadoB;
+                break;
+            case 2:
+                result = dadoA-dadoB;
+                break;
+            case 3:
+                result = dadoA/dadoB;
+                break;
+            default:
+                result = dadoA*dadoB;
+                break;
         }
-        updateVisor((int) dado);
+        return (int)result;
     }
 }
